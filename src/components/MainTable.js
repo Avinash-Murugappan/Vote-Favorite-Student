@@ -1,8 +1,9 @@
 import React from 'react'
 import './MainTable.css'
+import EditForm from './EditForm'
 
 
-const MainTable = ({data, setData}) => {
+const MainTable = ({data, setData, edit, setEdit}) => {
 
    function handleRemove(name){
       let copyData = [...data]
@@ -12,8 +13,9 @@ const MainTable = ({data, setData}) => {
 
     function handleEdit(name){
       let copyData = [...data]
-      let filtered = copyData.filter(i=>i.Name !== name )
-      setData(filtered)
+      let Efiltered = copyData.filter(i=>i.Name === name )
+
+      setEdit(Efiltered)
     }
 //  var result = [];
 // for(var i in data)
