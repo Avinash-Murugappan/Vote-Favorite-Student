@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import { Link, useHistory, BrowserRouter as Router  } from 'react-router-dom';
 // *write something
 // !something is wrong here
 //TODO:
@@ -16,6 +16,11 @@ const InputForm = ({setData, data}) => {
     const [hw4, setHW4] = useState("")
     const [hw5, setHW5] = useState("")
 
+     var history = useHistory();
+ const push = ()=>{
+      history.push("/");
+    }
+
     const handleSubmit = (e) => {
     e.preventDefault()
     const newData = [...data]
@@ -31,6 +36,8 @@ const InputForm = ({setData, data}) => {
     }
     newData.push(newEntry);
     setData(newData);
+    push()
+
   };
 
     return (

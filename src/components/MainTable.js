@@ -1,6 +1,7 @@
 import React from 'react'
 import './MainTable.css'
 import EditForm from './EditForm'
+import { Link } from 'react-router-dom'
 
 
 const MainTable = ({data, setData, edit, setEdit}) => {
@@ -78,8 +79,9 @@ const MainTable = ({data, setData, edit, setEdit}) => {
       <td style={{borderBottom:'1px solid black'}} > {element["3.2 ( Nav Bar )"]}</td>
       <td style={{borderBottom:'1px solid black'}} > {total} </td>
       <td> <button onClick={()=>handleRemove(element.Name)}>Delete</button></td>
+      <Link to='/edit'>
       <td> <button onClick={()=>handleEdit(element.Name)}>Edit</button></td>
-
+      </Link>
 
       </tr>
 
@@ -92,6 +94,10 @@ const MainTable = ({data, setData, edit, setEdit}) => {
  </tbody>
 
     </table>
+    <br />
+    {/* <Link to='/inputForm' >
+    <button > Add </button>
+    </Link> */}
 
         </div>
     )

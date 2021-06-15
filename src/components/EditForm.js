@@ -1,14 +1,16 @@
 import {React, useState, useEffect} from 'react'
+import { Link, useHistory, BrowserRouter as Router  } from 'react-router-dom';
 
 const EditForm = ({setEdit, edit, data, setData}) => {
 
     console.log(edit[0].Name);
     const cpyData = [...data]
-
+    var history = useHistory();
+ const push = ()=>{
+      history.push("/");
+    }
      var avm = cpyData.filter((i)=>i.Name !== edit[0].Name)
         console.log(avm);
-
-
 
     // // * component did mount
     // useEffect(()=>{
@@ -44,19 +46,17 @@ const EditForm = ({setEdit, edit, data, setData}) => {
     }
     avm.push(newEntry);
     setData(avm);
-
+    push();
   };
+
+
     return (
         <div>
         Edit:
              <form id="addform">
 
 
-
-
             <input type="text" value={name} onChange={(e)=> elName(e.target.value)} name="name" placeholder="Name:"/>
-
-
             <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} name="email" placeholder="Email:"/>
             <input type="text" value={tel} onChange={(e)=> setTel(e.target.value)} name="phone" placeholder="Phone:"/>
             <input type="text" value={link} onChange={(e)=> setLink(e.target.value)} name="project" placeholder="Project Link:"/>
@@ -66,6 +66,7 @@ const EditForm = ({setEdit, edit, data, setData}) => {
             <input type="number" value={hw4} onChange={(e)=> setHW4(e.target.value)} name="hw2.1" placeholder="Homework 4:"/>
             <input type="number" value={hw5} onChange={(e)=> setHW5(e.target.value)} name="hw2.1" placeholder="Homework 5:"/>
             <button onClick={handleSubmit}  type="submit">SUBMIT</button>
+
         </form>
         </div>
     )
